@@ -1,0 +1,26 @@
+ARG VERSION=14
+FROM node:$VERSION
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install default-jdk -y
+RUN apt install tmux -y
+RUN apt install git -y
+EXPOSE 3000
+ENV abcd=wtf
+RUN apt install python3.7 -y
+RUN apt install python3-pip -y
+#RUN apt install make automake gcc g++ subversion python3-dev -y
+#RUN apt install py3-pandas -y
+#RUN apt install py3-scikit-learn -y
+#RUN apt install py3-scikit-build -y
+RUN pip3 install --upgrade pip
+RUN apt install zsh -y
+RUN apt install vim -y
+RUN apt install neovim -y
+RUN apt install curl -y
+RUN apt install lynx -y
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#RUN apt install tmux
+#USER node
+WORKDIR /pytest
+COPY . .
